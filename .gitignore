@@ -1,0 +1,9 @@
+# macOS
+.DS_Store
+
+# not part of the published site
+ozkan_resume.pdf
+website_research_report.md
+
+# local scratch
+_*.html

@@ -1,0 +1,471 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Alpay Özkan</title>
+  <meta name="description" content="Alpay Özkan — computer vision and robotics researcher at ETH Zurich. 3D reconstruction, SLAM, uncertainty-aware mapping.">
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..700;1,9..144,300..700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <script>
+    // Apply saved theme before first paint to avoid a flash.
+    try { if (!document.documentElement.getAttribute('data-theme')) { var t = localStorage.getItem('theme'); if (!t && matchMedia('(prefers-color-scheme: dark)').matches) t = 'dark'; if (t) document.documentElement.setAttribute('data-theme', t); } } catch (e) {}
+  </script>
+</head>
+<body>
+
+<header class="site-header">
+  <a class="brand" href="#top"><span class="brand-mark"></span>alpay.özkan</a>
+  <nav class="site-nav" aria-label="Sections">
+    <a href="#research">Research</a>
+    <a href="#experience">Experience</a>
+    <a href="#education">Education</a>
+    <a href="#projects">Projects</a>
+  </nav>
+  <button class="theme-toggle" id="theme-toggle" aria-label="Toggle dark mode" title="Toggle theme">
+    <svg class="icon-sun" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
+    <svg class="icon-moon" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg>
+  </button>
+</header>
+
+<!-- ============ HERO ============ -->
+<section class="hero" id="top">
+  <canvas id="cloud" class="hero-cloud" aria-hidden="true"></canvas>
+  <div class="hero-inner">
+    <div class="hero-text">
+      <p class="eyebrow mono">Computer vision · 3D vision · Robotics</p>
+      <h1>Alpay Özkan</h1>
+      <p class="lede">
+        I build perception systems that know <em>how much they know</em>:
+        3D reconstruction, SLAM and mapping pipelines that reason about their own uncertainty.
+      </p>
+      <p class="bio">
+        I am finishing my MSc in Data Science at <a href="https://ethz.ch">ETH Zurich</a>, where I wrote my <a href="#thesis">thesis</a> on
+        uncertainty-aware adaptive 3D mapping with <a href="https://people.inf.ethz.ch/pomarc/">Prof. Marc Pollefeys</a> and
+        <a href="https://danini.github.io/">Dr. Daniel Barath</a> in the Computer Vision and Geometry group.
+        Right now I am an autonomy intern at <a href="https://www.skydio.com">Skydio</a> in San Mateo, working on
+        UAV visual mapping. Before that I spent time at Align Technology, Disney Research Zurich, and the
+        Computer Vision Laboratory at Linköping University. I did my BSc in Computer Engineering at METU in Ankara.
+      </p>
+      <div class="links">
+        <a class="pill" href="mailto:aoezkan@student.ethz.ch">Email</a>
+        <a class="pill" href="https://scholar.google.com/citations?user=cRzxEf8AAAAJ" rel="noopener">Scholar</a>
+        <a class="pill" href="https://github.com/alpayozkan" rel="noopener">GitHub</a>
+        <a class="pill" href="https://linkedin.com/in/alpay-ozkan" rel="noopener">LinkedIn</a>
+      </div>
+    </div>
+    <figure class="hero-photo">
+      <img src="assets/alpay.jpg" alt="Portrait of Alpay Özkan" width="462" height="462">
+      <figcaption class="mono">Zurich, CH · currently San Mateo, CA</figcaption>
+    </figure>
+  </div>
+</section>
+
+<main class="content">
+
+<!-- ============ NEWS ============ -->
+<section class="section" id="news">
+  <div class="section-head">
+    <span class="mono index">00</span>
+    <h2>Recent</h2>
+  </div>
+  <ul class="news">
+    <li><time class="mono">2026</time><span><strong>PACE</strong> (adaptive speed modulation for action-chunking policies) submitted to ICRA 2027.</span></li>
+    <li><time class="mono">Jun 2026</time><span>Started as an Autonomy &amp; Software Engineer Intern at <strong>Skydio</strong>, San Mateo.</span></li>
+    <li><time class="mono">2026</time><span><strong>Pixel-wise Planarity</strong> accepted to <strong>ECCV 2026</strong>.</span></li>
+    <li><time class="mono">2026</time><span><strong>UNRL</strong> accepted to <strong>BMVC 2026</strong>.</span></li>
+    <li><time class="mono">Apr 2026</time><span>Joined <strong>Align Technology</strong> Zurich as a research intern on 3D teeth reconstruction.</span></li>
+    <li><time class="mono">Sep 2025</time><span>Submitted my master's thesis, <a href="#thesis"><em>Uncertainty-Aware 3D Mapping</em></a>, graded 6.0/6.0.</span></li>
+    <li><time class="mono">Jun 2025</time><span>Our team won the <strong>ETH RobotX Summer School</strong> search-and-rescue challenge.</span></li>
+    <li><time class="mono">Nov 2024</time><span>Started a research internship at <strong>Disney Research</strong> Zurich on matting for hybrid animation.</span></li>
+  </ul>
+</section>
+
+<!-- ============ RESEARCH ============ -->
+<section class="section" id="research">
+  <div class="section-head">
+    <span class="mono index">01</span>
+    <h2>Research</h2>
+    <p class="section-note">Papers and thesis, newest first. Bold marks me, <span class="mono">*</span> marks equal contribution.</p>
+  </div>
+
+  <article class="pub">
+    <div class="pub-thumb" aria-hidden="true">
+      <svg viewBox="0 0 300 200">
+        <rect width="300" height="200" fill="var(--thumb-bg)"/>
+        <!-- path with complexity-dependent chunk spacing -->
+        <path id="pth" d="M20 150 C 60 150, 70 60, 110 70 S 140 130, 160 120 S 175 60, 200 65 S 240 150, 280 60" fill="none" stroke="var(--thumb-line)" stroke-width="1.5"/>
+        <g fill="var(--accent)">
+          <circle cx="20" cy="150" r="3.5"/><circle cx="45" cy="146" r="3.5"/><circle cx="70" cy="117" r="3.5"/>
+          <circle cx="83" cy="88" r="3"/><circle cx="96" cy="74" r="3"/><circle cx="110" cy="70" r="3"/>
+          <circle cx="124" cy="80" r="3"/><circle cx="135" cy="100" r="3"/><circle cx="147" cy="117" r="3"/><circle cx="160" cy="120" r="3"/>
+          <circle cx="170" cy="100" r="3"/><circle cx="178" cy="78" r="3"/><circle cx="189" cy="66" r="3"/><circle cx="200" cy="65" r="3"/>
+          <circle cx="215" cy="80" r="3.5"/><circle cx="232" cy="118" r="3.5"/><circle cx="252" cy="120" r="3.5"/><circle cx="280" cy="60" r="3.5"/>
+        </g>
+        <g class="mono" font-family="JetBrains Mono, monospace" font-size="9" fill="var(--thumb-dot)">
+          <text x="22" y="176">slow</text><text x="120" y="176">fast</text><text x="230" y="176">slow</text>
+        </g>
+      </svg>
+    </div>
+    <div class="pub-body">
+      <h3><a href="#">PACE: Path-Complexity Adaptive Speed Modulation for Generative Action-Chunking Policies</a></h3>
+      <p class="authors">Ali Batur Karakullukcu, Nikola Staykov, <strong>Alpay Özkan</strong>, Ralf Römer, Niklas Schlüter, Oliver Hausdörfer, Angela P. Schoellig</p>
+      <p class="venue"><span class="badge badge-review">Under review, ICRA 2027</span></p>
+      <p class="tldr">Generative action-chunking policies run at a fixed cadence; PACE speeds up on easy stretches and slows down where the path gets intricate.</p>
+      <div class="pub-links">
+        <button class="plink bib-toggle" data-target="bib-pace">bibtex</button>
+      </div>
+      <pre class="bibtex" id="bib-pace" hidden>@misc{karakullukcu2026pace,
+  title  = {PACE: Path-Complexity Adaptive Speed Modulation for Generative Action-Chunking Policies},
+  author = {Karakullukcu, Ali Batur and Staykov, Nikola and {\"O}zkan, Alpay and R{\"o}mer, Ralf and Schl{\"u}ter, Niklas and Hausd{\"o}rfer, Oliver and Schoellig, Angela P.},
+  note   = {Under review},
+  year   = {2026}
+}</pre>
+    </div>
+  </article>
+
+  <article class="pub">
+    <div class="pub-thumb" aria-hidden="true">
+      <svg viewBox="0 0 300 200">
+        <rect width="300" height="200" fill="var(--thumb-bg)"/>
+        <!-- voxel grid with varying opacity = uncertainty -->
+        <g id="vox">
+          <rect x="40" y="60" width="26" height="26" fill="var(--accent)" opacity=".15"/>
+          <rect x="70" y="60" width="26" height="26" fill="var(--accent)" opacity=".35"/>
+          <rect x="100" y="60" width="26" height="26" fill="var(--accent)" opacity=".8"/>
+          <rect x="130" y="60" width="26" height="26" fill="var(--accent)" opacity=".95"/>
+          <rect x="160" y="60" width="26" height="26" fill="var(--accent)" opacity=".5"/>
+          <rect x="190" y="60" width="26" height="26" fill="var(--accent)" opacity=".2"/>
+          <rect x="40" y="90" width="26" height="26" fill="var(--accent)" opacity=".3"/>
+          <rect x="70" y="90" width="26" height="26" fill="var(--accent)" opacity=".7"/>
+          <rect x="100" y="90" width="26" height="26" fill="var(--accent)" opacity="1"/>
+          <rect x="130" y="90" width="26" height="26" fill="var(--accent)" opacity="1"/>
+          <rect x="160" y="90" width="26" height="26" fill="var(--accent)" opacity=".85"/>
+          <rect x="190" y="90" width="26" height="26" fill="var(--accent)" opacity=".4"/>
+          <rect x="220" y="90" width="26" height="26" fill="var(--accent)" opacity=".15"/>
+          <rect x="70" y="120" width="26" height="26" fill="var(--accent)" opacity=".4"/>
+          <rect x="100" y="120" width="26" height="26" fill="var(--accent)" opacity=".75"/>
+          <rect x="130" y="120" width="26" height="26" fill="var(--accent)" opacity=".6"/>
+          <rect x="160" y="120" width="26" height="26" fill="var(--accent)" opacity=".3"/>
+          <!-- fine subdivision where confident -->
+          <g fill="var(--thumb-bg)" opacity=".5"><line/></g>
+          <g stroke="var(--thumb-bg)" stroke-width="1.2">
+            <line x1="113" y1="90" x2="113" y2="116"/><line x1="100" y1="103" x2="126" y2="103"/>
+            <line x1="143" y1="90" x2="143" y2="116"/><line x1="130" y1="103" x2="156" y2="103"/>
+            <line x1="143" y1="60" x2="143" y2="86"/><line x1="130" y1="73" x2="156" y2="73"/>
+          </g>
+        </g>
+        <!-- camera trajectory -->
+        <path d="M30 170 C 90 150, 150 175, 210 150 S 270 140, 280 130" fill="none" stroke="var(--thumb-line)" stroke-width="1.5" stroke-dasharray="3 4"/>
+        <g fill="var(--thumb-dot)"><circle cx="30" cy="170" r="3"/><circle cx="120" cy="164" r="3"/><circle cx="210" cy="150" r="3"/><circle cx="280" cy="130" r="3"/></g>
+      </svg>
+    </div>
+    <div class="pub-body">
+      <h3><a href="#">UNRL: Uncertainty-Aware RL-Controlled Adaptive 3D Mapping</a></h3>
+      <p class="authors"><strong>Alpay Özkan</strong>, Tunç Aydın, <a href="https://people.inf.ethz.ch/pomarc/">Marc Pollefeys</a>, Jelena Trisovic, <a href="https://danini.github.io/">Daniel Barath</a></p>
+      <p class="venue"><span class="badge badge-venue">BMVC 2026</span></p>
+      <p class="tldr">A reinforcement-learned controller reads the map's own uncertainty and decides where and how finely to reconstruct, so compute goes where the scene is still unknown.</p>
+      <div class="pub-links">
+        <a href="#" class="plink">paper</a>
+        <a href="#" class="plink">code</a>
+        <button class="plink bib-toggle" data-target="bib-unrl">bibtex</button>
+      </div>
+      <pre class="bibtex" id="bib-unrl" hidden>@inproceedings{ozkan2026unrl,
+  title     = {UNRL: Uncertainty-Aware RL-Controlled Adaptive 3D Mapping},
+  author    = {{\"O}zkan, Alpay and Aydin, Tunc and Pollefeys, Marc and Trisovic, Jelena and Barath, Daniel},
+  booktitle = {British Machine Vision Conference (BMVC)},
+  year      = {2026}
+}</pre>
+    </div>
+  </article>
+
+  <article class="pub">
+    <div class="pub-thumb thumb-planes" aria-hidden="true">
+      <svg viewBox="0 0 300 200">
+        <defs><linearGradient id="gp" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="var(--accent)" stop-opacity=".9"/><stop offset="1" stop-color="var(--accent)" stop-opacity=".25"/></linearGradient></defs>
+        <rect width="300" height="200" fill="var(--thumb-bg)"/>
+        <polygon points="20,150 130,110 130,190 20,190" fill="url(#gp)"/>
+        <polygon points="130,110 280,140 280,190 130,190" fill="var(--accent)" opacity=".45"/>
+        <polygon points="20,40 130,20 130,110 20,150" fill="var(--accent)" opacity=".2"/>
+        <polygon points="130,20 280,50 280,140 130,110" fill="var(--accent)" opacity=".12"/>
+        <g stroke="var(--thumb-line)" stroke-width="1" fill="none">
+          <line x1="20" y1="150" x2="130" y2="110"/><line x1="130" y1="110" x2="280" y2="140"/>
+          <line x1="130" y1="20" x2="130" y2="190"/><line x1="20" y1="40" x2="130" y2="20"/><line x1="130" y1="20" x2="280" y2="50"/>
+        </g>
+        <g fill="var(--thumb-dot)"><circle cx="60" cy="160" r="1.6"/><circle cx="95" cy="145" r="1.6"/><circle cx="180" cy="160" r="1.6"/><circle cx="230" cy="170" r="1.6"/><circle cx="70" cy="80" r="1.6"/><circle cx="200" cy="90" r="1.6"/></g>
+      </svg>
+    </div>
+    <div class="pub-body">
+      <h3><a href="https://arxiv.org/abs/2609.13246">Pixel-wise Planarity for High-Precision Monocular Plane Segmentation</a></h3>
+      <p class="authors">Ahmetcan Yavuz<sup>*</sup>, <strong>Alpay Özkan</strong><sup>*</sup>, <a href="https://rpautrat.github.io">Rémi Pautrat</a>, <a href="https://b1ueber2y.me">Shaohui Liu</a>, <a href="https://people.inf.ethz.ch/pomarc/">Marc Pollefeys</a></p>
+      <p class="venue"><span class="badge badge-venue">ECCV 2026</span></p>
+      <p class="tldr">Estimating planarity densely at every pixel gives sharper, higher-precision plane segments from a single image than region-level prediction.</p>
+      <div class="pub-links">
+        <a href="https://arxiv.org/abs/2609.13246" class="plink">arXiv</a>
+        <a href="https://arxiv.org/pdf/2609.13246" class="plink">pdf</a>
+        <a href="https://github.com/alpayozkan/PixelwisePlanarity" class="plink">code</a>
+        <button class="plink bib-toggle" data-target="bib-planarity">bibtex</button>
+      </div>
+      <pre class="bibtex" id="bib-planarity" hidden>@inproceedings{yavuz2026planarity,
+  title     = {Pixel-wise Planarity for High-Precision Monocular Plane Segmentation},
+  author    = {Yavuz, Ahmetcan and {\"O}zkan, Alpay and Pautrat, R{\'e}mi and Liu, Shaohui and Pollefeys, Marc},
+  booktitle = {European Conference on Computer Vision (ECCV)},
+  year      = {2026}
+}</pre>
+    </div>
+  </article>
+
+  <article class="pub" id="thesis">
+    <div class="pub-thumb" aria-hidden="true">
+      <svg viewBox="0 0 300 200">
+        <rect width="300" height="200" fill="var(--thumb-bg)"/>
+        <!-- adaptive voxel subdivision: coarse where certain, fine where uncertain / textured -->
+        <g fill="none" stroke="var(--thumb-line)" stroke-width="1">
+          <rect x="30" y="30" width="120" height="70"/>
+          <rect x="150" y="30" width="60" height="70"/><rect x="210" y="30" width="60" height="70"/>
+          <rect x="30" y="100" width="60" height="70"/><rect x="90" y="100" width="60" height="70"/>
+          <rect x="150" y="100" width="120" height="70"/>
+          <!-- second level -->
+          <rect x="150" y="30" width="30" height="35"/><rect x="180" y="30" width="30" height="35"/>
+          <rect x="150" y="65" width="30" height="35"/><rect x="180" y="65" width="30" height="35"/>
+          <rect x="90" y="100" width="30" height="35"/><rect x="120" y="100" width="30" height="35"/>
+          <rect x="90" y="135" width="30" height="35"/><rect x="120" y="135" width="30" height="35"/>
+          <!-- third level -->
+          <rect x="180" y="65" width="15" height="17.5"/><rect x="195" y="65" width="15" height="17.5"/>
+          <rect x="180" y="82.5" width="15" height="17.5"/><rect x="195" y="82.5" width="15" height="17.5"/>
+          <rect x="120" y="135" width="15" height="17.5"/><rect x="135" y="135" width="15" height="17.5"/>
+          <rect x="120" y="152.5" width="15" height="17.5"/><rect x="135" y="152.5" width="15" height="17.5"/>
+        </g>
+        <g fill="var(--accent)">
+          <rect x="180" y="65" width="30" height="35" opacity=".55"/>
+          <rect x="120" y="135" width="30" height="35" opacity=".55"/>
+          <rect x="150" y="30" width="60" height="70" opacity=".14"/>
+          <rect x="90" y="100" width="60" height="70" opacity=".14"/>
+        </g>
+        <g font-family="JetBrains Mono, monospace" font-size="9" fill="var(--thumb-dot)"><text x="30" y="188">coarse</text><text x="215" y="188">fine</text></g>
+      </svg>
+    </div>
+    <div class="pub-body">
+      <h3><a href="assets/thesis.pdf">Uncertainty-Aware 3D Mapping</a></h3>
+      <p class="authors"><strong>Alpay Özkan</strong>. Supervised by <a href="https://people.inf.ethz.ch/pomarc/">Prof. Marc Pollefeys</a>, advised by <a href="https://danini.github.io/">Dr. Daniel Barath</a> and Jelena Trisovic</p>
+      <p class="venue"><span class="badge badge-venue">MSc thesis · ETH Zurich, Sep 2025</span> <span class="badge">Grade 6.0 / 6.0</span></p>
+      <p class="tldr">Extends MapAdapt's quality-adaptive TSDF mapping so that voxels are subdivided where semantic predictions are uncertain or where the surface is texture-rich, with Bayesian semantic fusion and multi-resolution mesh extraction. Evaluated on HSSD and ScanNet.</p>
+      <div class="pub-links">
+        <a href="assets/thesis.pdf" class="plink">pdf</a>
+        <a href="https://github.com/alpayozkan/Uncertainty-Aware-3D-Mapping" class="plink">code</a>
+        <button class="plink bib-toggle" data-target="bib-thesis">bibtex</button>
+      </div>
+      <pre class="bibtex" id="bib-thesis" hidden>@mastersthesis{ozkan2025uncertaintymapping,
+  title  = {Uncertainty-Aware 3D Mapping},
+  author = {{\"O}zkan, Alpay},
+  school = {ETH Zurich, Computer Vision and Geometry Group},
+  year   = {2025},
+  month  = {9}
+}</pre>
+    </div>
+  </article>
+
+  <article class="pub">
+    <div class="pub-thumb" aria-hidden="true">
+      <svg viewBox="0 0 300 200">
+        <rect width="300" height="200" fill="var(--thumb-bg)"/>
+        <g stroke="var(--thumb-line)" stroke-width="1"><line x1="30" y1="170" x2="280" y2="170"/></g>
+        <g fill="var(--accent)">
+          <rect x="45" y="40" width="28" height="130" opacity=".9"/>
+          <rect x="85" y="95" width="28" height="75" opacity=".6"/>
+          <rect x="125" y="125" width="28" height="45" opacity=".45"/>
+          <rect x="165" y="145" width="28" height="25" opacity=".35"/>
+          <rect x="205" y="155" width="28" height="15" opacity=".3"/>
+          <rect x="245" y="162" width="28" height="8" opacity=".25"/>
+        </g>
+        <!-- uncertainty curve -->
+        <path d="M59 150 L99 120 L139 95 L179 60 L219 45 L259 40" fill="none" stroke="var(--thumb-dot)" stroke-width="2"/>
+        <g fill="var(--thumb-dot)"><circle cx="59" cy="150" r="3"/><circle cx="99" cy="120" r="3"/><circle cx="139" cy="95" r="3"/><circle cx="179" cy="60" r="3"/><circle cx="219" cy="45" r="3"/><circle cx="259" cy="40" r="3"/></g>
+        <g font-family="JetBrains Mono, monospace" font-size="9" fill="var(--thumb-dot)"><text x="30" y="30">uncertainty</text><text x="215" y="188">class freq.</text></g>
+      </svg>
+    </div>
+    <div class="pub-body">
+      <h3><a href="https://arxiv.org/abs/2311.14090">Class Uncertainty: A Measure to Mitigate Class Imbalance</a></h3>
+      <p class="authors">Zeynep Sonat Baltacı, Kemal Öksüz, Selim Kuzucu, Kıvanç Tezören, Berkin Kerim Konar, <strong>Alpay Özkan</strong>, Emre Akbaş, Sinan Kalkan</p>
+      <p class="venue"><span class="badge">arXiv 2023</span></p>
+      <p class="tldr">Class frequency is a crude proxy for difficulty; measuring per-class predictive uncertainty gives a better signal for rebalancing.</p>
+      <div class="pub-links">
+        <a href="https://arxiv.org/abs/2311.14090" class="plink">arXiv</a>
+        <button class="plink bib-toggle" data-target="bib-classunc">bibtex</button>
+      </div>
+      <pre class="bibtex" id="bib-classunc" hidden>@article{baltaci2023classuncertainty,
+  title   = {Class Uncertainty: A Measure to Mitigate Class Imbalance},
+  author  = {Baltac{\i}, Zeynep Sonat and {\"O}ks{\"u}z, Kemal and Kuzucu, Selim and Tez{\"o}ren, K{\i}van{\c{c}} and Konar, Berkin Kerim and {\"O}zkan, Alpay and Akba{\c{s}}, Emre and Kalkan, Sinan},
+  journal = {arXiv preprint arXiv:2311.14090},
+  year    = {2023}
+}</pre>
+    </div>
+  </article>
+</section>
+
+<!-- ============ EXPERIENCE ============ -->
+<section class="section" id="experience">
+  <div class="section-head">
+    <span class="mono index">02</span>
+    <h2>Experience</h2>
+    <p class="section-note">Newest first. Internship work is described only by topic.</p>
+  </div>
+
+  <h3 class="group-label mono">Industry</h3>
+  <ol class="timeline">
+    <li class="tl-item">
+      <div class="tl-when mono">Jun 2026 – now</div>
+      <div class="tl-body">
+        <h3>Skydio <span class="tl-role">Autonomy &amp; Software Engineer Intern</span></h3>
+        <p class="tl-where mono">San Mateo, CA</p>
+        <div class="tags"><span>UAV visual mapping</span><span>3D reconstruction</span><span>structure from motion</span><span>GNSS / RTK</span><span>bundle adjustment</span></div>
+      </div>
+    </li>
+    <li class="tl-item">
+      <div class="tl-when mono">Apr – Jun 2026</div>
+      <div class="tl-body">
+        <h3>Align Technology <span class="tl-role">Research Intern, ML &amp; Software</span></h3>
+        <p class="tl-where mono">Zurich</p>
+        <div class="tags"><span>3D dental reconstruction</span><span>statistical shape models</span><span>generative models</span></div>
+      </div>
+    </li>
+    <li class="tl-item">
+      <div class="tl-when mono">Nov 2024 – Feb 2025</div>
+      <div class="tl-body">
+        <h3>Disney Research <span class="tl-role">Research Intern</span></h3>
+        <p class="tl-where mono">Zurich</p>
+        <div class="tags"><span>image matting</span><span>segmentation</span><span>hybrid 2D / CG animation</span></div>
+      </div>
+    </li>
+    <li class="tl-item">
+      <div class="tl-when mono">Jul – Aug 2021</div>
+      <div class="tl-body">
+        <h3>Nokia <span class="tl-role">Software Engineering Intern</span></h3>
+        <p class="tl-where mono">Istanbul</p>
+        <div class="tags"><span>data pipelines</span><span>Python</span><span>Perl</span></div>
+      </div>
+    </li>
+  </ol>
+
+  <h3 class="group-label mono">Research labs</h3>
+  <ol class="timeline">
+    <li class="tl-item">
+      <div class="tl-when mono">Aug – Oct 2022</div>
+      <div class="tl-body">
+        <h3>Computer Vision Laboratory, Linköping University <span class="tl-role">Research Intern</span></h3>
+        <p class="tl-where mono">Linköping, Sweden</p>
+        <div class="tags"><span>uncertainty-aware segmentation</span><span>normalised convolution</span><span>class activation maps</span></div>
+      </div>
+    </li>
+    <li class="tl-item">
+      <div class="tl-when mono">Aug – Nov 2021</div>
+      <div class="tl-body">
+        <h3>Kovan Robotics Lab, METU <span class="tl-role">Research Intern</span></h3>
+        <p class="tl-where mono">Ankara</p>
+        <div class="tags"><span>UR5</span><span>reinforcement learning</span><span>curriculum learning</span><span>MuJoCo</span></div>
+      </div>
+    </li>
+  </ol>
+</section>
+
+<!-- ============ EDUCATION ============ -->
+<section class="section" id="education">
+  <div class="section-head">
+    <span class="mono index">03</span>
+    <h2>Education</h2>
+  </div>
+  <ol class="timeline">
+    <li class="tl-item tl-edu">
+      <div class="tl-when mono">2023 – 2026</div>
+      <div class="tl-body">
+        <h3>ETH Zurich <span class="tl-role">MSc Data Science</span></h3>
+        <p class="tl-where mono">Zurich · GPA 5.5 / 6 · thesis 6 / 6</p>
+        <p>Focus on computer vision, 3D vision, machine learning, and robotics. Thesis: <a href="#thesis"><em>Uncertainty-Aware 3D Mapping</em></a>, supervised by Prof. Marc Pollefeys and advised by Dr. Daniel Barath and Jelena Trisovic.</p>
+      </div>
+    </li>
+    <li class="tl-item tl-edu">
+      <div class="tl-when mono">2019 – 2023</div>
+      <div class="tl-body">
+        <h3>Middle East Technical University <span class="tl-role">BSc Computer Engineering</span></h3>
+        <p class="tl-where mono">Ankara · GPA 3.83 / 4 · rank 7 of 299</p>
+      </div>
+    </li>
+    <li class="tl-item tl-edu">
+      <div class="tl-when mono">2021</div>
+      <div class="tl-body">
+        <h3>Aalto University <span class="tl-role">Erasmus exchange, Computer Science</span></h3>
+        <p class="tl-where mono">Espoo, Finland · GPA 4.67 / 5</p>
+      </div>
+    </li>
+  </ol>
+</section>
+
+<!-- ============ PROJECTS ============ -->
+<section class="section" id="projects">
+  <div class="section-head">
+    <span class="mono index">04</span>
+    <h2>Projects</h2>
+    <p class="section-note">Things built for courses, summer schools and curiosity. More on <a href="https://github.com/alpayozkan">GitHub</a>.</p>
+  </div>
+  <div class="cards">
+    <article class="card">
+      <p class="mono card-date">Jun 2025</p>
+      <h3>Search &amp; rescue robot, RobotX Summer School</h3>
+      <p>State estimation, SLAM, path planning, trajectory optimisation and object detection on a real robot, supervised by ETH RSL and RobotX. The robot delivered a 3D map with detected object coordinates. Winning team of the challenge.</p>
+      <div class="tags"><span>SLAM</span><span>planning</span><span>ROS</span></div>
+      <div class="card-links"><a href="https://drive.google.com/drive/folders/1yKKWH31kjvIV1QPSO0-mRvz7oLkptNXa?usp=sharing">material</a><a href="https://drive.google.com/file/d/1WvduEe4NcaFczJnULVmVkpqB5AUtQY0_/view?usp=sharing">report</a></div>
+    </article>
+    <article class="card">
+      <p class="mono card-date">Sep 2024</p>
+      <h3>Vision-based drone tracking with RL</h3>
+      <p>Trained an RL drone agent in simulation and deployed it on real hardware to follow another drone. Supervised by the UZH Robotics and Perception Group.</p>
+      <div class="tags"><span>RL</span><span>sim-to-real</span><span>UAV</span></div>
+      <div class="card-links"><a href="https://drive.google.com/file/d/1EVx9WpLCTIIuXg6YLTsV7Ol0fZVpQzgk/view?usp=sharing">report</a><a href="https://drive.google.com/drive/folders/1nobf5d4ImTCu2kQDewTZUVsBNin3QF7C?usp=sharing">material</a></div>
+    </article>
+    <article class="card">
+      <p class="mono card-date">Apr – Jul 2024</p>
+      <h3>Distributional RL and the Laplace code</h3>
+      <p>Explored distributional reinforcement learning and the Laplace code for biologically plausible temporal modelling of immediate rewards. ETH Foundations of RL.</p>
+      <div class="tags"><span>RL</span><span>neuroscience</span></div>
+      <div class="card-links"><a href="https://github.com/alpayozkan/Laplace_DQN/tree/main">code</a><a href="https://drive.google.com/file/d/1ep4RnN1-M_jh-HehqCA1EqtRqBxXMqJ5/view?usp=sharing">report</a></div>
+    </article>
+    <article class="card">
+      <p class="mono card-date">Sep – Dec 2023</p>
+      <h3>Computer vision from scratch</h3>
+      <p>Feature extraction, recognition, segmentation, tracking and structure-from-motion, implemented for the ETH Computer Vision course.</p>
+      <div class="tags"><span>SfM</span><span>tracking</span><span>segmentation</span></div>
+      <div class="card-links"><a href="https://github.com/alpayozkan/computer_vision/tree/main">code</a></div>
+    </article>
+    <article class="card">
+      <p class="mono card-date">Nov 2021 – Dec 2022</p>
+      <h3>Class imbalance and uncertainty</h3>
+      <p>Undergraduate research with Prof. Sinan Kalkan and Prof. Emre Akbaş on imbalanced classification. Compared reliability and compute cost of deep ensembles, MC-dropout and DDU. Led to the Class Uncertainty preprint.</p>
+      <div class="tags"><span>uncertainty</span><span>imbalance</span></div>
+      <div class="card-links"><a href="https://arxiv.org/abs/2311.14090">arXiv</a></div>
+    </article>
+    <article class="card">
+      <p class="mono card-date">2023</p>
+      <h3>Probabilistic AI</h3>
+      <p>Paper re-implementations on uncertainty estimation, Bayesian learning, Gaussian processes and reinforcement learning.</p>
+      <div class="tags"><span>Bayesian</span><span>GPs</span></div>
+      <div class="card-links"><a href="https://github.com/alpayozkan/pai">code</a></div>
+    </article>
+  </div>
+</section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="footer-inner">
+    <p>Alpay Özkan · <a href="mailto:aoezkan@student.ethz.ch">aoezkan@student.ethz.ch</a></p>
+    <p class="mono footer-note">Hand-written HTML and CSS, no framework. The point cloud in the header is a live reconstruction that keeps rescanning the scene. Feel free to borrow the idea; please write your own version.</p>
+  </div>
+</footer>
+
+<script src="js/cloud.js"></script>
+<script src="js/main.js"></script>
+</body>
+</html>
