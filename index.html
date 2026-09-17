@@ -38,23 +38,81 @@
     <div class="hero-text">
       <p class="eyebrow mono" id="eyebrow" data-phrases="3D vision · robotics · machine learning|geometry that learns, learning that respects geometry|maps that know where to look closer|from a single image to a metric 3D scene|perception for machines that move">3D vision · robotics · machine learning</p>
       <h1>Alpay Özkan</h1>
-      <p class="lede">
-        I build <em>3D perception</em> for machines that move through the world:
-        reconstruction, mapping and scene understanding a robot can act on.
-      </p>
-      <p class="bio">
-        I work where classical geometry meets learning: turning images into metric 3D, maps that
-        decide their own resolution, and models that know how far to trust themselves.
-      </p>
-      <p class="bio">
-        MSc in Data Science from <a href="https://ethz.ch">ETH Zurich</a>, thesis in the
-        <a href="https://cvg.ethz.ch">Computer Vision and Geometry group</a> with
-        <a href="https://people.inf.ethz.ch/pomarc/">Prof. Marc Pollefeys</a> and
-        <a href="https://danini.github.io/">Dr. Daniel Barath</a>.
-        Currently an autonomy engineering intern at <a href="https://www.skydio.com">Skydio</a> in San Mateo,
-        working on visual mapping for drones.
-        BSc in Computer Engineering from METU, Ankara, Turkey.
-      </p>
+      <div class="bio-switch" role="tablist" aria-label="Bio length">
+        <button role="tab" data-bio="brief" aria-selected="false">Brief</button>
+        <button role="tab" data-bio="concise" aria-selected="true">Concise</button>
+        <button role="tab" data-bio="detailed" aria-selected="false">Detailed</button>
+      </div>
+
+      <div class="bio-panel" data-bio="brief" hidden>
+        <p class="bio">
+          Hi! I'm a Data Science graduate of <a href="https://ethz.ch">ETH Zurich</a>, focusing on
+          3D vision, mapping and robot perception. I am currently an autonomy engineering intern at
+          <a href="https://www.skydio.com">Skydio</a> in San Mateo, working on visual mapping for drones.
+        </p>
+      </div>
+
+      <div class="bio-panel" data-bio="concise">
+        <p class="bio">
+          Hi! I'm a Data Science graduate of <a href="https://ethz.ch">ETH Zurich</a>, focusing on
+          3D vision, mapping and robot perception.
+        </p>
+        <p class="bio">
+          I am currently an autonomy engineering intern at <a href="https://www.skydio.com">Skydio</a> in
+          San Mateo, working on visual mapping and 3D reconstruction for autonomous drones.
+        </p>
+        <p class="bio">
+          At ETH I was part of the <a href="https://cvg.ethz.ch">Computer Vision and Geometry Group</a> headed by
+          <a href="https://people.inf.ethz.ch/pomarc/">Prof. Marc Pollefeys</a>. My Master's thesis with
+          <a href="https://danini.github.io/">Dr. Daniel Barath</a> on <a href="#thesis">uncertainty-aware 3D mapping</a>
+          led to UNRL, accepted at BMVC 2026, and my work on monocular plane segmentation with
+          <a href="https://rpautrat.github.io">Dr. Rémi Pautrat</a> and <a href="https://b1ueber2y.me">Shaohui Liu</a>
+          was accepted at ECCV 2026.
+        </p>
+        <p class="bio">
+          Before ETH, I did my BSc in Computer Engineering at METU in Ankara, Turkey, with research stays at
+          Disney Research Zurich, Align Technology, and the Computer Vision Laboratory at Linköping University.
+        </p>
+      </div>
+
+      <div class="bio-panel" data-bio="detailed" hidden>
+        <p class="bio">
+          Hi! I'm a Data Science graduate of <a href="https://ethz.ch">ETH Zurich</a>, focusing on
+          3D vision, mapping and robot perception.
+        </p>
+        <p class="bio">
+          I am currently an autonomy engineering intern at <a href="https://www.skydio.com">Skydio</a> in
+          San Mateo, California, working on visual mapping and 3D reconstruction for autonomous drones
+          with Dr. Bargoti. Earlier in 2026 I was a research intern at Align Technology in Zurich, working on
+          3D dental reconstruction and generative models for treatment visualisation.
+        </p>
+        <p class="bio">
+          At ETH I was part of the <a href="https://cvg.ethz.ch">Computer Vision and Geometry Group</a> headed by
+          <a href="https://people.inf.ethz.ch/pomarc/">Prof. Marc Pollefeys</a>. My Master's thesis,
+          <a href="#thesis">Uncertainty-Aware 3D Mapping</a>, was advised by
+          <a href="https://danini.github.io/">Dr. Daniel Barath</a> and Jelena Trisovic and graded 6.0/6.0;
+          it led to UNRL, an uncertainty-aware, RL-controlled adaptive mapping method accepted at BMVC 2026.
+          In the same group I worked with <a href="https://rpautrat.github.io">Dr. Rémi Pautrat</a> and
+          <a href="https://b1ueber2y.me">Shaohui Liu</a> on pixel-wise planarity for monocular plane segmentation,
+          accepted at ECCV 2026. I also collaborated on PACE, adaptive speed modulation for action-chunking
+          policies, under review at ICRA 2027.
+        </p>
+        <p class="bio">
+          Between 2024 and 2025 I was a research intern at Disney Research Zurich under
+          Dr. Tunç Aydın, working on image matting and segmentation for hybrid hand-drawn and CG animation.
+          In 2025 I took part in the ETH RobotX Summer School, where our team won the search-and-rescue challenge,
+          and in 2024 I trained and deployed a vision-based drone-tracking agent with the Robotics and Perception
+          Group at UZH.
+        </p>
+        <p class="bio">
+          Before ETH, I did my BSc in Computer Engineering at METU in Ankara, Turkey, graduating 7th of 299,
+          with an Erasmus exchange at Aalto University. During my BSc I was a research intern at the
+          Computer Vision Laboratory of Linköping University under Prof. Michael Felsberg and Dr. Abdelrahman Eldesokey,
+          and at the Kovan Robotics Lab under Prof. Erol Şahin and Prof. Sinan Kalkan. My undergraduate research
+          with Prof. Sinan Kalkan and Prof. Emre Akbaş on class imbalance and uncertainty led to the
+          Class Uncertainty preprint.
+        </p>
+      </div>
       <div class="links">
         <a class="pill" href="mailto:aoezkan@student.ethz.ch">Email</a>
         <a class="pill" href="https://scholar.google.com/citations?user=cRzxEf8AAAAJ" rel="noopener">Scholar</a>
@@ -450,7 +508,7 @@
 
 <footer class="site-footer">
   <div class="footer-inner">
-    <p>© 2026 Alpay Özkan · <a href="mailto:aoezkan@student.ethz.ch">aoezkan@student.ethz.ch</a></p>
+    <p>© 2026 Alpay Özkan. All rights reserved.</p>
   </div>
 </footer>
 

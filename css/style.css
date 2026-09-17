@@ -404,3 +404,12 @@ button { font: inherit; color: inherit; background: none; border: 0; cursor: poi
 .eyebrow.fade { opacity: 0; transform: translateY(-3px); }
 
 .hero-photo figcaption { white-space: nowrap; }
+
+/* ---------- bio length switch ---------- */
+.bio-switch { display: inline-flex; gap: 2px; padding: 3px; margin: 0 0 18px; border: 1px solid var(--line); border-radius: 999px; background: color-mix(in srgb, var(--card) 70%, transparent); }
+.bio-switch button { font-family: var(--mono); font-size: .74rem; padding: 4px 12px; border-radius: 999px; color: var(--muted); transition: color .15s ease, background .15s ease; }
+.bio-switch button:hover { color: var(--fg); }
+.bio-switch button[aria-selected="true"] { background: var(--fg); color: var(--bg); }
+.bio-panel { animation: bio-in .3s ease; }
+@keyframes bio-in { from { opacity: 0; transform: translateY(4px); } to { opacity: 1; transform: none; } }
+@media (prefers-reduced-motion: reduce) { .bio-panel { animation: none; } }

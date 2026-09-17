@@ -76,4 +76,15 @@
       setTimeout(function () { eb.textContent = phrases[idx]; eb.classList.remove('fade'); }, 350);
     }, 4200);
   }
+
+  // ---- bio length switch (brief / concise / detailed) ----
+  var bioBtns = document.querySelectorAll('.bio-switch [data-bio]');
+  var bioPanels = document.querySelectorAll('.bio-panel');
+  function showBio(key) {
+    bioPanels.forEach(function (p) { p.hidden = p.dataset.bio !== key; });
+    bioBtns.forEach(function (b) { b.setAttribute('aria-selected', String(b.dataset.bio === key)); });
+    try { localStorage.setItem('bio', key); } catch (e) {}
+  }
+  bioBtns.forEach(function (b) { b.addEventListener('click', function () { showBio(b.dataset.bio); }); });
+  try { var savedBio = localStorage.getItem('bio'); if (savedBio) showBio(savedBio); } catch (e) {}
 })();
