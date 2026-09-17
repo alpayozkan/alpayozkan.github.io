@@ -64,4 +64,16 @@
   } else {
     items.forEach(function (el) { el.classList.add('in'); });
   }
+
+  // ---- cycling eyebrow line ----
+  var eb = document.getElementById('eyebrow');
+  var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (eb && eb.dataset.phrases && !reduceMotion) {
+    var phrases = eb.dataset.phrases.split('|'), idx = 0;
+    setInterval(function () {
+      idx = (idx + 1) % phrases.length;
+      eb.classList.add('fade');
+      setTimeout(function () { eb.textContent = phrases[idx]; eb.classList.remove('fade'); }, 350);
+    }, 4200);
+  }
 })();
