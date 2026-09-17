@@ -1,8 +1,8 @@
 # macOS
 .DS_Store
 
-# not part of the published site
-ozkan_resume.pdf
+# never publish documents, only the site
+*.pdf
 website_research_report.md
 
 # local scratch
